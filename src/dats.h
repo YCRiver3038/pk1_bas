@@ -155,7 +155,7 @@ char Chl[CNUM][TNLENG] = {
 	"F", "G", "H", "I", //0x68
 
 	"V", "S", "L", "M",
-	"：", "ぃ", "ぅ", "「", //0x70
+	":", "ぃ", "ぅ", "「", //0x70
 
 	"」", "『", "』", "・",
 	"…", "ぁ", "ぇ", "ぉ", //0x78
@@ -411,7 +411,7 @@ char Tols[CNUM][TNLENG] = {
 };
 
 /*
-	情報源：http://hakuda2.web.fc2.com/wario/poke1/mo.html　		　→「◆内部コード表◆」
+	情報源:http://hakuda2.web.fc2.com/wario/poke1/mo.html　		　→「◆内部コード表◆」
 			http://www.geocities.jp/kattempla/pokebug/mojicodep.html
 			http://www.geocities.jp/kattempla/pokebug/mojicodem.html
 			http://www.geocities.jp/kattempla/pokebug/pokename.html

@@ -21,7 +21,7 @@ int isFound = FOUND;
 
 int bExit() {
 	int nExitF = 1;
-	printf("\n続ける：1　/　もどる：0\n");
+	printf("\n続ける: 1 / もどる: 0\n");
 	scanf("%d", &nExitF);
 	fseek(stdin, (long)0, SEEK_SET);
 	return nExitF;
@@ -40,22 +40,22 @@ void vError() {
 
 int vInfo(int fSpls) {
 	if (fSpls < 166 || fSpls>195) { 
-		printf("\nわざ名：%s\n", Skl[fSpls]); 
+		printf("\nわざ名: %s\n", Skl[fSpls]); 
 	}
 	else { 
 		printf("\n第1世代(赤緑青ピカ)に於いては、対応するわざは本来ありません。(バグ名称)\n"); 
 	}
 
-	printf("\n文字：%s\n", Chl[fSpls]);
+	printf("\n文字: %s\n", Chl[fSpls]);
 
 	if (Spls > 200) { 
-		printf("\nトレーナー名：%s\n", pNum[fSpls]); 
+		printf("\nトレーナー名: %s\n", pNum[fSpls]); 
 	}
 	else { 
-		printf("\nポケモン名：%s\n", pNum[fSpls]); 
+		printf("\nポケモン名: %s\n", pNum[fSpls]); 
 	}
 
-	printf("\nどうぐ名：%s\n", Tols[fSpls]);
+	printf("\nどうぐ名: %s\n", Tols[fSpls]);
 
 	return 0;
 }
@@ -75,7 +75,7 @@ int judgeExceptNumber(int SourceNumber[], int TargetNumber, int numSourceMember)
 }
 
 int code1BtoChar() {
-	printf("\n値を入力してください。(16進数)\n注：下2桁以外は無視されます。\n");
+	printf("\n値を入力してください。(16進数)\n注: 下2桁以外は無視されます。\n");
 	while (scanf("%x", &code) == EOF) {
 		fseek(stdin, (long)0, SEEK_SET);
 		printf("正しい値(16進数)を入力してください。\n");
@@ -85,25 +85,25 @@ int code1BtoChar() {
 
 	code = code & 0x000000FF;
 
-	printf("内部コード：0x%02X\n", code);
+	printf("内部コード: 0x%02X\n", code);
 
-	printf("\n文字：%s\n", Chl[code]);
+	printf("\n文字: %s\n", Chl[code]);
 
 	if (code < 166 || code > 195) {
-		printf("\nわざ名：%s\n", Skl[code]);
+		printf("\nわざ名: %s\n", Skl[code]);
 	}
 	else {
 		printf("\n第1世代(赤緑青ピカ)に於いては、対応するわざは本来ありません。(バグ名称)\n");
 	}
 
 	if (code > 200) {
-		printf("\nトレーナー名：%s\n", pNum[code]);
+		printf("\nトレーナー名: %s\n", pNum[code]);
 	}
 	else {
-		printf("\nポケモン名：%s\n", pNum[code]);
+		printf("\nポケモン名: %s\n", pNum[code]);
 	}
 
-	printf("\nどうぐ名：%s\n", Tols[code]);
+	printf("\nどうぐ名: %s\n", Tols[code]);
 
 	return 0;
 }
@@ -119,7 +119,7 @@ int mbToAsm(int codeLength, int inCodeINT_F[]) {
 	else {
 		isOpen = 1;
 	}
-	printf("\nアセンブリ言語化：\n");
+	printf("\nアセンブリ言語化: \n");
 
 	Ctr = 0;
 	while (Ctr < codeLength) {
@@ -455,11 +455,11 @@ int readMbCode() {
 	printf("\n（意図しない「00」が入った場合は無視してください。）");
 	printf("\n一桁のコードは頭を0で埋めてください。");
 	printf("\n入力を終わる時は、Enterキーを押したあとEOFを入力してください。\n");
-	printf("\n※最大：スペース含めて%dバイト分(%dケタ)\n\n", CODEMAX - 1, (CODEMAX - 1) * 2 );
+	printf("\n※最大: スペース含めて%dバイト分(%dケタ)\n\n", CODEMAX - 1, (CODEMAX - 1) * 2 );
 	
 	numberChar = fread(inCode, sizeof(char), CODEMAX * 2, stdin);
 	fseek(stdin, (long)0, SEEK_SET);
-	printf("入力された文字数：%d\n", numberChar - 1);
+	printf("入力された文字数: %d\n", numberChar - 1);
 	if (numberChar != 0) {
 		inCode[numberChar - 1] = '\0';
 	}
@@ -488,9 +488,9 @@ int readMbCode() {
 	}
 	printf("\n\n");
 
-	printf("文字列：\n");
+	printf("文字列: \n");
 	codeToInfo(Chl, ctr2, inCodeINT, LF_CHAR);
-	printf("道具名：\n");
+	printf("道具名: \n");
 	codeToInfo(Tols, ctr2, inCodeINT, LF_TOOL);
 
 	mbToAsm(ctr2, inCodeINT);
@@ -506,7 +506,7 @@ int CV_Code() {
 
 	printf("\n内部コード値→各種変換\n");
 	while (continueF == 1) {
-		printf("\nコード(1バイト)→文字：0\nコード列→文字：1\n");
+		printf("\nコード(1バイト)→文字: 0\nコード列→文字: 1\n");
 		while (scanf("%d", &selMode) == EOF) {
 			fseek(stdin, (long)0, SEEK_SET);
 			printf("半角数字で選択してください。\n");
@@ -546,7 +546,7 @@ int Spls10() {
 
 	Spls = Expl % 256;
 
-	printf("\n256で割った余りは %d \n16進数：%02X\n", Spls, Spls);
+	printf("\n256で割った余りは %d \n16進数: %02X\n", Spls, Spls);
 
 	vInfo(Spls);
 
@@ -563,7 +563,7 @@ int Spls16() {
 
 	Spls = Expl % 256;
 
-	printf("\n256で割った余りは %02X \n10進数：%u\n", Spls, Spls);//%xは16進数表示
+	printf("\n256で割った余りは %02X \n10進数: %u\n", Spls, Spls);//%xは16進数表示
 
 	vInfo(Spls);
 
@@ -601,7 +601,7 @@ int CodeFind() {
 	Ctr = 0;
 
 	while (condContinue == 1) {
-		printf("\n何を検索しますか？\n\nわざ：1\n文字/文字列：2\nポケモン/トレーナー名：3\nどうぐ：4\nもどる：0\n");
+		printf("\n何を検索しますか？\n\nわざ: 1\n文字/文字列: 2\nポケモン/トレーナー名: 3\nどうぐ: 4\nもどる: 0\n");
 		while (scanf("%d", &findl) == EOF) {
 			fseek(stdin, (long)0, SEEK_SET);
 			printf("\n半角数字で選んでください。\n");
@@ -616,7 +616,7 @@ int CodeFind() {
 			isFound = codeComp(Skl, fSkill);
 
 			if (isFound == FOUND) {
-				printf("\n内部コード：0x%02X　%s\n", Ctr, Skl[Ctr]);
+				printf("\n内部コード: 0x%02X %s\n", Ctr, Skl[Ctr]);
 			}
 			else {
 				vError();
@@ -631,7 +631,7 @@ int CodeFind() {
 			int codeFromStr[STRING_MAX] = { 0 };
 			int ctrCFStr = 0;
 
-			printf("\n検索対象は？\n1文字だけ検索：0\n文字列から1文字ずつ検索：1\n");
+			printf("\n検索対象は？\n1文字だけ検索: 0\n文字列から1文字ずつ検索: 1\n");
 			scanf("%d", &isStrFind);
 			fseek(stdin, (long)0, SEEK_SET);
 
@@ -643,14 +643,14 @@ int CodeFind() {
 				isFound = codeComp(Chl, fSkill);
 
 				if (isFound == FOUND) {
-					printf("\n内部コード：0x%02X　%s\n", Ctr, Chl[Ctr]);
+					printf("\n内部コード: 0x%02X %s\n", Ctr, Chl[Ctr]);
 				}
 				else {
 					vError();
 				}
 			}
 			else {
-				printf("注：1文字ずつ比較するため、以下の文字(列)に関しては、コードとの対応が正しくない場合があります。\n");
+				printf("注: 1文字ずつ比較するため、以下の文字(列)に関しては、コードとの対応が正しくない場合があります。\n");
 				
 				for (int ctr1 = 0; ctr1 <= 0x04; ctr1++) { 
 					printf("0x%02X %s\n", ctr1, Chl[ctr1]); 
@@ -723,10 +723,10 @@ int CodeFind() {
 
 			if (isFound == FOUND) {
 				if (Ctr > 200) {
-					printf("\n内部コード：0x%02X　(トレーナー名)%s\n", Ctr, pNum[Ctr]);
+					printf("\n内部コード: 0x%02X (トレーナー名)%s\n", Ctr, pNum[Ctr]);
 				}
 				else {
-					printf("\n内部コード：0x%02X　%s\n", Ctr, pNum[Ctr]);
+					printf("\n内部コード: 0x%02X %s\n", Ctr, pNum[Ctr]);
 				}
 			}
 			else {
@@ -741,7 +741,7 @@ int CodeFind() {
 			isFound = codeComp(Tols, fSkill);
 
 			if (isFound == FOUND) {
-				printf("\n内部コード：0x%02X　%s\n", Ctr, Tols[Ctr]);
+				printf("\n内部コード: 0x%02X %s\n", Ctr, Tols[Ctr]);
 			}
 			else {
 				vError();
