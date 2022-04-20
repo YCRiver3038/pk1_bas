@@ -7,24 +7,6 @@ int main()
 	int nExit = 1;
 	unsigned int Base = 0;
 
-	FILE *FdispC = NULL;
-
-	FdispC = fopen("dispChars.bat", "w");
-
-	if (FdispC == NULL)
-	{
-		printf("バッチファイルが作成できませんでした。\n");
-	}
-	else
-	{
-		fprintf(FdispC, "@echo off\n");
-		fprintf(FdispC, "dispChars\n");
-		fprintf(FdispC, "PAUSE\n");
-		fprintf(FdispC, "exit\n");
-		fclose(FdispC);
-		system("start \"文字列一覧\" dispChars.bat");
-	}
-
 	printf("初代ポケモンのバグ技に関連する各種計算などを行います。\n");
 	printf("\n一部の機能において、ポケモン緑(00A 後期)以外では違う結果になる可能性があります。\n");
 

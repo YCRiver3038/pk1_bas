@@ -544,7 +544,7 @@ int Spls10() {
 	fseek(stdin, (long)0, SEEK_SET);
 	printf("\n");
 
-	Spls = Expl % 256;
+	Spls = Expl & (unsigned int)0xFF;
 
 	printf("\n256で割った余りは %d \n16進数: %02X\n", Spls, Spls);
 
@@ -561,7 +561,7 @@ int Spls16() {
 	}
 	fseek(stdin, (long)0, SEEK_SET);
 
-	Spls = Expl % 256;
+	Spls = Expl & (unsigned int)0xFF;
 
 	printf("\n256で割った余りは %02X \n10進数: %u\n", Spls, Spls);//%xは16進数表示
 
@@ -595,7 +595,7 @@ int CodeFind() {
 	int SetCtr = 0;
 	int findl = 0;
 	int condContinue = 1;
-	char fSkill[48] = { 0 };
+	char fSkill[50] = { 0 };
 
 	fseek(stdin, (long)0, SEEK_SET);
 	Ctr = 0;
@@ -610,7 +610,7 @@ int CodeFind() {
 
 		if (findl == 1) {
 			printf("\n検索するわざ名を入力してください。\n");
-			scanf("%49s", &fSkill);
+			scanf("%49s", fSkill);
 			fseek(stdin, (long)0, SEEK_SET);
 
 			isFound = codeComp(Skl, fSkill);
@@ -637,7 +637,7 @@ int CodeFind() {
 
 			if (isStrFind == 0) {
 				printf("\n検索する文字を入力してください。\n");
-				scanf("%49s", &fSkill);
+				scanf("%49s", fSkill);
 				fseek(stdin, (long)0, SEEK_SET);
 
 				isFound = codeComp(Chl, fSkill);
@@ -716,7 +716,7 @@ int CodeFind() {
 		}
 		else if (findl == 3) {
 			printf("\n検索するポケモン/トレーナー名を入力してください。\n");
-			scanf("%49s", &fSkill);
+			scanf("%49s", fSkill);
 			fseek(stdin, (long)0, SEEK_SET);
 
 			isFound = codeComp(pNum, fSkill);
@@ -735,7 +735,7 @@ int CodeFind() {
 		}
 		else if (findl == 4) {
 			printf("\n検索するどうぐ名を入力してください。\n");
-			scanf("%49s", &fSkill);
+			scanf("%49s", fSkill);
 			fseek(stdin, (long)0, SEEK_SET);
 
 			isFound = codeComp(Tols, fSkill);
